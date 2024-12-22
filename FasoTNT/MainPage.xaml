@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="FasoTNT.MainPage">
+    
+    <StackLayout>
+        <Label Text="TNT Channel 1" HorizontalOptions="Center" />
+        <WebView x:Name="youtubeWebView"
+                 HeightRequest="300"
+                 WidthRequest="400"
+                 Source="https://www.youtube.com/embed/1lZ3FQSv-wI?autohide=1" />
+    </StackLayout>
+
+
+</ContentPage>
