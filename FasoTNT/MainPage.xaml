@@ -6,10 +6,14 @@
     
     <StackLayout>
         <Label Text="TNT Channel 1" HorizontalOptions="Center" />
-        <WebView x:Name="youtubeWebView"
-                 HeightRequest="300"
-                 WidthRequest="400"
-                 Source="https://www.youtube.com/embed/1lZ3FQSv-wI?autohide=1" />
+        <toolkit:MediaElement x:Name="youtubeWebView"
+                        Aspect="AspectFit"
+                              ShouldAutoPlay="True"
+                         HeightRequest="{OnPlatform Default='600', Android='300', iOS='300', WinUI='500'}"
+                          WidthRequest="{OnPlatform Default='800', Android='400', iOS='400', WinUI='800'}"
+                          VerticalOptions="CenterAndExpand"
+                          HorizontalOptions="CenterAndExpand" 
+                         Source="https://live-hls-web-aje.getaj.net/AJE/01.m3u8" />
     </StackLayout>
 
 
