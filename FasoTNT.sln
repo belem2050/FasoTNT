@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FasoTNT", "FasoTNT\FasoTNT.csproj", "{46F75140-B1BC-47F4-9121-DFB9248E02CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FasoTNT", "FasoTNT\FasoTNT.csproj", "{46F75140-B1BC-47F4-9121-DFB9248E02CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
