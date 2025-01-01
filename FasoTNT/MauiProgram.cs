@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Maui;
+using FasoTNT.Views.Pages;
 using Microsoft.Extensions.Logging;
 
 namespace FasoTNT
@@ -20,6 +21,9 @@ namespace FasoTNT
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+            builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddSingleton<MainPageVM>();
+
             return builder.Build();
         }
     }

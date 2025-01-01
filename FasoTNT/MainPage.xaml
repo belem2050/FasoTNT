@@ -3,18 +3,69 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="FasoTNT.MainPage">
-    
-    <StackLayout>
-        <Label Text="TNT Channel 1" HorizontalOptions="Center" />
-        <toolkit:MediaElement x:Name="youtubeWebView"
-                        Aspect="AspectFit"
-                              ShouldAutoPlay="True"
-                         HeightRequest="{OnPlatform Default='600', Android='300', iOS='300', WinUI='500'}"
-                          WidthRequest="{OnPlatform Default='800', Android='400', iOS='400', WinUI='800'}"
-                          VerticalOptions="CenterAndExpand"
-                          HorizontalOptions="CenterAndExpand" 
-                         Source="https://live-hls-web-aje.getaj.net/AJE/01.m3u8" />
-    </StackLayout>
+    <Grid>
+        <!-- Carousel for TV Stations -->
+        <CarouselView x:Name="carroselView"
+                      ItemsSource="{Binding Manager.TvStations}"
+                      HorizontalOptions="FillAndExpand"
+                      VerticalOptions="FillAndExpand"
+                      PeekAreaInsets="30" 
+                       Loop="True"
+                      IndicatorView="IndicatorView"
+                      >
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <!-- Background Frame for TV Station -->
+                        <Frame HasShadow="False"
+                               CornerRadius="15"
+                               Margin="8"
+                               Padding="8"
+                               VerticalOptions="FillAndExpand"
+                               HorizontalOptions="FillAndExpand"
+                               BackgroundColor="LightGray">
+                            <VerticalStackLayout>
+                                <!-- TV Station Image -->
+                                <Image Source="{Binding ImageUrl}"
+                                       Aspect="AspectFit"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Fill"
+                                       HeightRequest="300" 
+                                        />
 
+                                <toolkit:MediaElement x:Name="VideoPlayer"
+                                        Source="{Binding StreamUrl}"
+                                        Aspect="AspectFill"
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand"
+                                        ShouldAutoPlay="False"
+                                        ShouldShowPlaybackControls="True"
+                                        BindingContextChanged="VideoPlayer_BindingContextChanged"
+                                        />
+
+                                <!-- TV Station Name -->
+                                <Label Text="{Binding Name}"
+                                       FontSize="20"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="End" />
+                            </VerticalStackLayout>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+
+        <!-- Carousel Indicator -->
+        <IndicatorView x:Name="IndicatorView"
+                       HorizontalOptions="Center"
+                       VerticalOptions="End"
+                       Margin="10"
+                       IndicatorColor="Gray"
+                       SelectedIndicatorColor="Black" />
+    </Grid>
 
 </ContentPage>
+
+    
+    
+    
