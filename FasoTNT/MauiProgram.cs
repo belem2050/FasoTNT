@@ -24,6 +24,9 @@ namespace FasoTNT
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<MainPageVM>();
 
+            builder.Services.AddTransient<NowPage>();
+            builder.Services.AddTransient<TonigthPage>();
+
             return builder.Build();
         }
     }

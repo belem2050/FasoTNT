@@ -11,6 +11,10 @@ namespace FasoTNT
         private static object _lockInstance = new object();
         static private SystemManager? _instance = null;
 
+        public TvStation CurrentTvStation { get; set; } = new TvStation();
+
+        public MediaElement CurrentMediaElement { get; set; }
+
         public ObservableCollection<TvStation> TvStations { get; private set; } = new ObservableCollection<TvStation>();
 
 
@@ -30,6 +34,5 @@ namespace FasoTNT
                     return _instance;
             }
         }
-
     }
 }

@@ -19,9 +19,6 @@ namespace FasoTNT.ViewModels
         [ObservableProperty]
         private string streamUrl = string.Empty;
 
-        [ObservableProperty]
-        private MediaElement videoPlayer = new MediaElement();
-
         public TvStation() 
         {
         }

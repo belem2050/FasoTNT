@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="FasoTNT.Views.Pages.PlayerPage"
+            >
+
+    <!-- Background for the player -->
+    <ContentPage.BackgroundColor>
+        <Color>#F5F5F5</Color>
+    </ContentPage.BackgroundColor>
+
+    <Grid Padding="20" RowSpacing="15">
+        <!-- Title and Channel Name -->
+        <Label Text="{Binding CurrentTvStation.Name}"
+               FontSize="24"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               VerticalOptions="Start" />
+
+        <!-- Media Element for Playing -->
+        <toolkit:MediaElement x:Name="MediaPlayer"
+                              Source="{Binding CurrentTvStation.StreamUrl}"
+                              ShouldAutoPlay="True"
+                              Aspect="AspectFit"
+                              HorizontalOptions="FillAndExpand"
+                              VerticalOptions="CenterAndExpand" />
+    </Grid>
+
+</ContentPage>

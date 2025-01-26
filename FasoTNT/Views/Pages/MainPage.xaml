@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="FasoTNT.Views.Pages.MainPage">
+    <Grid>
+        <!-- Define rows: Image (10%), Carousel (80%), TabMenu (10%) -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="75*" />
+        </Grid.RowDefinitions>
+
+        <!-- Top Image -->
+        <Image Grid.Row="0"
+               Source="tnt.jpg" 
+               Aspect="AspectFill"
+               Margin="25,10,25,0"
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="FillAndExpand" />
+
+        <!-- Row for Version, Display Mode, and Toggle Switch -->
+        <Grid Grid.Row="1"
+              Padding="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0"
+                   Text="Version: v1.0.0"
+                   Margin="20,0,0,0"
+                   VerticalOptions="Center" />
+
+            <Label Grid.Column="1"
+                   Text="Display mode:"
+                   Margin="20,0,10,0"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center" />
+
+            <Switch Grid.Column="2"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+        </Grid>
+
+        <!-- Carousel for TV Stations -->
+        <CarouselView Grid.Row="2"
+                      x:Name="carroselView"
+                      ItemsSource="{Binding Manager.TvStations}"
+                      HorizontalOptions="FillAndExpand"
+                      VerticalOptions="FillAndExpand"
+                      PeekAreaInsets="25" 
+                      Loop="True"
+                      IndicatorView="IndicatorView">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <!-- TV Station ImageButton inside a Frame -->
+                        <Frame HasShadow="True"
+                               CornerRadius="20"
+                               Margin="10"
+                               Padding="5"
+                               BackgroundColor="WhiteSmoke"
+                               BorderColor="Gray"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="FillAndExpand">
+                            <ImageButton x:Name="ChannelImageButton"
+                                         Source="{Binding ImageUrl}"
+                                         Aspect="AspectFill"
+                                         HorizontalOptions="FillAndExpand"
+                                         VerticalOptions="FillAndExpand"
+                                         Clicked="OnChannelImageButton_Clicked"
+                                          />
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+
+    </Grid>
+</ContentPage>

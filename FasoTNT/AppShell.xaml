@@ -4,12 +4,34 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:FasoTNT"
+    xmlns:pages="clr-namespace:FasoTNT.Views.Pages"
     Shell.FlyoutBehavior="Disabled"
     Title="FasoTNT">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <!-- Tab Bar -->
+    <TabBar>
+        <!-- Accueil Tab -->
+        <Tab Title="Home" Icon="home.png">
+            <ShellContent
+                Title="         Burkina Faso TNT channels"
+                ContentTemplate="{DataTemplate pages:MainPage}"
+                Route="MainPage" />
+        </Tab>
 
+        <!-- Maintenant Tab -->
+        <Tab Title="Now" Icon="live.png">
+            <ShellContent
+                Title="Now"
+                ContentTemplate="{DataTemplate pages:NowPage}" 
+                Route="NowPage" />
+        </Tab>
+
+        <!-- Ce Soir Tab -->
+        <Tab Title="Tonight" Icon="tonight.png">
+            <ShellContent
+                Title="Tonight"
+                ContentTemplate="{DataTemplate pages:TonigthPage}" 
+                Route="TonightPage" />
+        </Tab>
+    </TabBar>
 </Shell>
